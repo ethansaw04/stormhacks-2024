@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import QrReader from 'react-qr-reader';
+import { QrReader } from 'react-qr-reader';
 
 const BarcodeScanner = () => {
     const [result, setResult] = useState('No result');
