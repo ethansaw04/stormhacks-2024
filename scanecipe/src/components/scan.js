@@ -110,6 +110,9 @@ export default function Scan({
         setRawCode(rawCode);
         setCodeType(codeType);
         setMilliseconds(millis);
+        const response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
+        const data = await response.json();
+        setFoodItem(data[0]); //REPLACE HERE FOR WEBSCRAPING
         if (beepOn) beepNow();
       }
     };
