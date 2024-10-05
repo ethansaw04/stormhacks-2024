@@ -219,18 +219,18 @@ export default function Scan({
   };
 
   const xHairStyle = () => {
-    if (crosshairOn) return {backgroundColor: "green"};
-    else return {backgroundColor: ""};
+    if (crosshairOn) return {backgroundColor: "#00fb36"};
+    else return {backgroundColor: "red"};
   };
 
   const bwStyle = () => {
-    if (bwOn) return {backgroundColor: "green"};
-    else return {backgroundColor: ""};
+    if (bwOn) return {backgroundColor: "#00fb36"};
+    else return {backgroundColor: "red"};
   };
 
   const beepStyle = () => {
-    if (beepOn) return {backgroundColor: "green"};
-    else return {backgroundColor: ""};
+    if (beepOn) return {backgroundColor: "#00fb36"};
+    else return {backgroundColor: "red"};
   };
 
   const transformToggleStyle = () => {
@@ -262,7 +262,7 @@ export default function Scan({
       </div>
     );
   };
-  
+
   const renderQrCodeResult = () => {
     return barcode;
   }
