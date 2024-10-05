@@ -1,0 +1,46 @@
+{
+  "name": "@pathcheck/dcc-sdk",
+  "version": "0.0.27",
+  "description": "Verifiable QR SDK for EU Digital Covid Certificates",
+  "private": false,
+  "main": "lib/index.js",
+  "module": "lib/main.js",
+  "react-native": "lib/main.js",
+  "scripts": {
+    "test": "mocha",
+    "webpack": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Path-Check/dcc-sdk.js"
+  },
+  "bugs": {
+    "url": "https://github.com/Path-Check/dcc-sdk.js/issues"
+  },
+  "files": [
+    "lib/**/*.js",
+    "scripts/**/*.js"
+  ],
+  "author": "Vitor Pamplona",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "@fidm/asn1": "^1.0.4",
+    "base45": "^3.0.0",
+    "base45-js": "^1.0",
+    "base64-js": "~1.5.1",
+    "cbor": "^8.0.0",
+    "cross-fetch": "^3.1.4",
+    "esm": "^3.2.25",
+    "isomorphic-webcrypto": "^2.3.8",
+    "node-inspect-extracted": "^1.0.7",
+    "pako": "^2.0.4",
+    "sha256-uint8array": "^0.10.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0",
+    "process": "^0.11.10",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^4.6.0"
+  }
+}
