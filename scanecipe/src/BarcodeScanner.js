@@ -35,6 +35,7 @@ const BarcodeScanner = () => {
                 onScan={handleScan}
                 style={{ width: '100%', maxWidth: '400px', margin: 'auto' }}
                 facingMode="environment" // Use the back camera on mobile devices
+                videoStyle={{ transform: 'scaleX(-1)' }} // Mirroring effect
             />
             <div style={{ marginTop: '20px' }}>
                 <p><strong>Scanned Data:</strong> {result}</p>
