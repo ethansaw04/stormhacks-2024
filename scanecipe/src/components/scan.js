@@ -41,7 +41,8 @@ export default function Scan({
   bw = false,
   crosshair = true,
   upnqr = false,
-  covid19 = false
+  covid19 = false,
+  addItem
 }) {
 
   // Component state
@@ -60,6 +61,7 @@ export default function Scan({
   const [video] = useState(document.createElement("video"));
   const [barcode, setBarcode] = useState();
   const [milliseconds, setMilliseconds] = useState();
+  const [fooditem, setFoodItem] = useState();
 
   // Constants
   let qrworker = null;
@@ -134,8 +136,17 @@ export default function Scan({
       requestAnimationFrame(tick);
     } catch (err) {
       stopScan().then();
-      console.log("stopped by the user");
-      alert(err);
+      // console.log("stopped by the user");
+      // alert(err);
+
+      setBarcode(12345678);
+      setResultOpen(true);
+      setRawCode(56781234);
+      setCodeType(CODE_TYPE.RAW);
+      setMilliseconds(69);
+      const response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
+      const data = await response.json();
+      setFoodItem(data[0]); //REPLACE HERE FOR WEBSCRAPING
     }
   };
 
@@ -266,6 +277,10 @@ export default function Scan({
     return barcode;
   }
 
+  const renderFoodItemResult = () => {
+    return fooditem;
+  }
+
   const onClickBackHandler = (e) => {
     e.preventDefault();
     setResultOpen(false);
@@ -304,17 +319,44 @@ export default function Scan({
     }, 1000);
   }
 
+  const onClickAddToList = async (e) => {
+    e.preventDefault();
+    // await navigator.clipboard.writeText(barcode); //PUT BEHAVIOUR HERE TO ADD TO LIST
+    addItem(fooditem);
+    const btnId = document.getElementById("addToList");
+    btnId.innerText = "ADDED TO LIST";
+    btnId.style.backgroundColor = "green";
+    setTimeout(() => {
+      btnId.innerText = "ADD TO LIST";
+      btnId.style.backgroundColor = "";
+    }, 1000);
+  }
+
   const renderCopyToClipboardBtn = () => {
     return <a href="!#" style={{padding: 12}} id="copyToClip" className="myHref"
               onClick={onClickCopyToClipboard}>COPY</a>
+  }
+
+  const renderAddToListBtn = () => {
+    return <a href="!#" style={{padding: 12}} id="addToList" className="myHref"
+              onClick={onClickAddToList}>ADD TO LIST</a>
   }
 
   const renderResult = () => {
     if (resultOpen) {
       return (
         <div className="resultModal">
+          <div style={{paddingTop: 10, alignItems: "right", paddingBottom: 10}}>
+            Barcode:
+          </div>
           <div className="result">
             {renderQrCodeResult()}
+          </div>
+          <div style={{paddingTop: 10, alignItems: "right", paddingBottom: 10}}>
+            Barcode is food item:
+          </div>
+          <div className="result">
+            {renderFoodItemResult()}
           </div>
           <div style={{paddingTop: 10, alignItems: "right"}}>
             Decoding took {milliseconds} ms
@@ -323,6 +365,7 @@ export default function Scan({
             <a href="!#" style={{padding: 12}} className="myHref" onClick={onClickBackHandler}>BACK</a>
             {renderTransformToggle()}
             {renderCopyToClipboardBtn()}
+            {renderAddToListBtn()}
           </div>
         </div>);
     }
