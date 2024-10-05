@@ -1,7 +1,7 @@
 // src/BarcodeScanner.js
 
 import React, { useEffect, useRef, useState } from 'react';
-import Koder from '@maslick/koder';
+import Koder from '@maslick/koder'; // Ensure correct import
 
 const BarcodeScanner = () => {
   const videoRef = useRef(null);
@@ -15,26 +15,32 @@ const BarcodeScanner = () => {
       try {
         const videoStream = await navigator.mediaDevices.getUserMedia({
           video: {
-            facingMode: 'environment', // Use rear camera
+            facingMode: 'environment', // Use the rear camera
           },
         });
 
         videoRef.current.srcObject = videoStream;
         videoRef.current.play();
 
-        const detectBarcode = () => {
-          koder.decodeFromVideo(videoRef.current)
-            .then(result => {
-              if (result) {
-                setScannedData(result.data); // Store the scanned data
-                setError('');
-              }
-              requestAnimationFrame(detectBarcode); // Continue scanning
-            })
-            .catch(err => {
-              console.error(err);
-              setError('Error decoding the barcode');
+        const detectBarcode = async () => {
+          try {
+            // Wait until the video is ready
+            await new Promise((resolve) => {
+              videoRef.current.onloadedmetadata = resolve;
             });
+
+            // Scan the video stream
+            const result = await koder.scan(videoRef.current);
+            if (result) {
+              setScannedData(result.data); // Store the scanned data
+              setError('');
+            }
+
+            requestAnimationFrame(detectBarcode); // Continue scanning
+          } catch (err) {
+            console.error(err);
+            setError('Error decoding the barcode');
+          }
         };
 
         detectBarcode(); // Start scanning
