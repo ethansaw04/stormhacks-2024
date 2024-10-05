@@ -256,12 +256,13 @@ export default function Scan({
   const renderScan = () => {
     return (
       <div className="scan">
+        <h1 style={{ textAlign: 'center', margin: '20px 0' }}>SCANECIPE</h1>
         {renderCanvas()}
         {renderButtons()}
       </div>
     );
   };
-
+  
   const renderQrCodeResult = () => {
     return barcode;
   }
