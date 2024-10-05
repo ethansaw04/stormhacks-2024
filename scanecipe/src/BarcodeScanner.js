@@ -34,6 +34,7 @@ const BarcodeScanner = () => {
     Quagga.onDetected((data) => {
       setBarcode(data.codeResult.code);
       // Optionally stop scanning after detecting a barcode
+      console.log('Detected Barcode: ', data.codeResult.code);
       Quagga.stop();
     });
 
