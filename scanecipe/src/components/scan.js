@@ -248,8 +248,6 @@ export default function Scan({
     return <div className="scanBtn">
       <a href="!#" className="myHref" onClick={onBtnClickHandler} style={startStyle()}>{btnText}</a>
       <a href="!#" className="myHref" onClick={onCrossHairClickHandler} style={xHairStyle()}>X-hair</a>
-      <a href="!#" className="myHref" onClick={onBWClickHandler} style={bwStyle()}>B/W</a>
-      <a href="!#" className="myHref" onClick={onBeepClickHandler} style={beepStyle()}>Beep</a>
     </div>;
   };
 
