@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+<p align="right">
+  <kbd style="background-color:#f03c15; color: white; padding: 10px;">
+    🚀 NEW: Check Out <a style="text-decoration:none" href="https://github.com/maslick/kameroon">Kameroon</a> - QR/Bar Code Scanner as a Service 🚀 
+  </kbd>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# =koder=
+QR/bar code scanner for the Browser
 
-In the project directory, you can run:
+[![npm](https://img.shields.io/npm/v/@maslick/koder.svg)](https://www.npmjs.com/package/@maslick/koder)
+[![Build Status](https://github.com/maslick/koder-react/actions/workflows/prod.yml/badge.svg)](https://github.com/maslick/koder-react/actions?query=workflow%3Abuild)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-### `npm start`
+## :bulb: Demo
+https://koder-prod.web.app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Features
+* QR/barcode module implemented in WebAssembly
+* Barcode support (ISBN, UPC-A, UPC-E, EAN-8, EAN-13, I25, ITF-14, CODE-128, CODE-39, CODE-93, CODABAR, DATABAR)
+* Uses Zbar C++ library (version [0.23.90](https://github.com/mchehab/zbar))
+* Packaged as PWA (caching files with Service Worker, Add to Home Screen)
+* Mobile first (can be used on a Laptop as well)
+* Multiplatform (iOS, Android, Desktop)
+* QR/bar code recognition logic is performed off the browser's Main thread (i.e. Web Worker)
+* *koder* React component supports a [jsqr](https://www.npmjs.com/package/jsqr) based Web Worker (see [jsQrWorker.js](./public/jsQrWorker.js))
+* Emscripten-zbar-sdk [Docker image](https://hub.docker.com/r/maslick/emscripten-zbar-sdk) based on `emscripten/emsdk`, [Dockerfile](./docker/Dockerfile)
+* ReactJS [component](./src/components/scan.js)
+* Vanilla JS [example](https://github.com/maslick/koder-vanilla-js)
+* :new: Turn on/off the beep sound
+* :new: Support for UPN QR (Slovenia only)
+* :new: EU Digital Covid Certificate validator (vaccination, test), works in ``offline`` mode!
+* :new: Emscripten v3.1.1
+* :new: npm package
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p align="center" >
+  <img src="./screenshots/app_1.png" width="400px" />
+  <img src="./screenshots/app_2.png" width="400px" />
+</p>
 
-### `npm run build`
+## ⚡ Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Install dependencies
+```shell
+npm install --global yarn
+yarn install --frozen-lockfile
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Run React app
+```shell
+npm run start
+open https://locahost:8080
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Productionize
+```shell
+npm run build                # -> build React app into ./public
+npm run prod                 # -> serve static web app on port 8082
+open http://localhost:8082
+```
 
-### `npm run eject`
+## ⚡ NPM module
+```
+npm install @maslick/koder
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```javascript
+// CommonJS
+const Koder = require('@maslick/koder');
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+// ES6 modules
+import Koder from '@maslick/koder';
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```javascript
+const Koder = require('@maslick/koder');
+const {loadImage, createCanvas} = require("canvas");
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+const getImageData = async (src) => {
+  const img = await loadImage(src);
+  const canvas = createCanvas(img.width, img.height);
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(img, 0, 0);
+  return {
+    data: ctx.getImageData(0, 0, img.width, img.height).data,
+    width: img.width,
+    height: img.height
+  };
+};
 
-## Learn More
+(async () => {
+  const url = 'https://raw.githubusercontent.com/maslick/koder/master/screenshots/app_1.png';
+  const koder = await new Koder().initialized;
+  const {data, width, height} = await getImageData(url);
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  const t0 = new Date().getTime();
+  const res = koder.decode(data, width, height);
+  const t1 = new Date().getTime();
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  console.log(`Scanned in ${t1-t0} ms`);  // Scanned in 7 ms
+  console.log(res);                       // http://en.m.wikipedia.org
+})();
+```
 
-### Code Splitting
+## :spades: Development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Fetch or build the Builder image
+```shell
+docker pull maslick/emscripten-zbar-sdk
+docker build -t maslick/emscripten-zbar-sdk -f docker/Dockerfile docker
+```
 
-### Analyzing the Bundle Size
+### Build WASM artifacts
+```shell
+# Linux, Mac Intel
+docker run \
+  -e INPUT_FILE=zbar/qr.cpp \
+  -e OUTPUT_FILE=zbar \
+  -e OUTPUT_DIR=public/wasm \
+  -v $(pwd):/app \
+  maslick/emscripten-zbar-sdk make -B
+  
+# Mac M1/M2
+docker run \
+  --platform linux/amd64 \
+  -e INPUT_FILE=zbar/qr.cpp \
+  -e OUTPUT_FILE=zbar \
+  -e OUTPUT_DIR=public/wasm \
+  -v $(pwd):/app \
+  maslick/emscripten-zbar-sdk make -B
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Clean the build artifacts (if necessary):
+```shell
+OUTPUT_DIR=public/wasm OUTPUT_FILE=zbar make clean
+```
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔭 References
+* [WebAssembly at Ebay](https://tech.ebayinc.com/engineering/webassembly-at-ebay-a-real-world-use-case/)
+* [Barcode Scanner WebAssembly](https://barkeywolf.consulting/posts/barcode-scanner-webassembly/)
+* [zbar.wasm](https://github.com/samsam2310/zbar.wasm)

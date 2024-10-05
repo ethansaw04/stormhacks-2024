@@ -1,27 +1,36 @@
 {
   "name": "scanecipe",
-  "version": "0.1.0",
+  "version": "1.11.0",
+  "homepage": "./",
   "private": true,
+  "description": "QR/bar code scanner for the Browser that generates recipes",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-app-rewired": "^2.2.1",
+    "prop-types": "^15.8.1",
+    "react-usestateref": "^1.0.8",
+    "upnqr": "1.1.0",
+    "@pathcheck/dcc-sdk": "^0.0.27",
+    "buffer": "^6.0.3",
+    "util": "^0.12.5",
+    "stream-browserify": "^3.0.0",
+    "process": "^0.11.10",
+    "http-server": "^0.13.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build && npm run build-sw && npm run clean-cra-sw",
+    "build-sw": "node ./src/sw-build.js",
+    "clean-cra-sw": "rm -f build/precache-manifest.*.js && rm -f build/service-worker.js",
+    "prod": "http-server ./build/ -p 8082 -c-1",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "pre-publish-node": "cp LICENSE dist && cp README.md dist && cp public/wasm/zbar* dist"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -34,5 +43,26 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maslick/koder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maslick/koder/issues"
+  },
+  "keywords": [
+    "qrcode",
+    "barcode",
+    "webassembly",
+    "wasm",
+    "emscripten",
+    "zbar",
+    "qr",
+    "ean13",
+    "ean8",
+    "i25",
+    "upca",
+    "upce"
+  ]
 }
