@@ -1,5 +1,6 @@
 // List.js
 import React, { useState } from 'react';
+import "../css/list.css";
 
 const List = ({ children }) => {
   const [items, setItems] = useState([]);
@@ -9,13 +10,18 @@ const List = ({ children }) => {
   };
 
   return (
-    <div>
-      <ul>
+    <div class='parent flex-parent'>
+        <div class='child flex-child'>
+            {React.cloneElement(children, { addItem })}
+        </div>
+      <ul class='child flex-child'>
+        <div>
+            List of Foods:
+        </div>
         {items.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
       </ul>
-      {React.cloneElement(children, { addItem })}
     </div>
   );
 };
