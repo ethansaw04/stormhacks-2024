@@ -257,7 +257,7 @@ export default function Scan({
   };
 
   const beepStyle = () => {
-    if (beepOn) return {backgroundColor: "g#f1d59f"};
+    if (beepOn) return {backgroundColor: "#f1d59f"};
     else return {backgroundColor: "#605a4a"};
   };
 
