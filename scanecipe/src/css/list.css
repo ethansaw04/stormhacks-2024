@@ -19,14 +19,14 @@ body {
 }
 
 li {
-    background: #e6e6e6;
+    background: #ffffff;
     color: black;
     margin: 5px;
     list-style-type: none;
 }
 
 ul {
-    background: #e6e6e6;
+    background: #ffffff;
     padding: 20px;
     border-radius: 6px;
 }
