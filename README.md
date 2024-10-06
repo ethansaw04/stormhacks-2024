@@ -16,7 +16,7 @@ python app.py # or python3 app.py
 ### Go back to the root directory
 ```shell
 cd ..
-``
+```
 
 ### Install dependencies
 ```shell
