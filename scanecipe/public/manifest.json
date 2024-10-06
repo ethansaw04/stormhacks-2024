@@ -1,6 +1,6 @@
 {
   "short_name": "QR scanner",
-  "name": "QR code scanner",
+  "name": "BarcodeBytes",
   "description": "simple QR code scanner",
   "lang": "en-GB",
   "icons": [
