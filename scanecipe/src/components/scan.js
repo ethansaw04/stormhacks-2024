@@ -112,7 +112,7 @@ export default function Scan({
         setMilliseconds(millis);
         const response = await fetch('http://127.0.0.1:5000/scrape?upc=' + res);
         const data = await response.json();
-        setFoodItem(data[0]); //REPLACE HERE FOR WEBSCRAPING
+        setFoodItem(data['title']); //REPLACE HERE FOR WEBSCRAPING
         if (beepOn) beepNow();
       }
     };
