@@ -57,4 +57,4 @@ def scrape():
         return jsonify({'error': 'Failed to retrieve product title'}), 500
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(host='0.0.0.0', port=5001)  # Ensure it listens on all interfaces
