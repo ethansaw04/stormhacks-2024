@@ -33,7 +33,6 @@ npm run start
 ### Running Docker
 *Remember to add OpenAI key in `scanrecipe/src/components/openai.js` before you build*
 ```shell
-cd scanecipe
 docker compose build
 docker compose up
 ```
