@@ -123,9 +123,11 @@ const OpenAI = () => {
 
     return (
         <div className="openai-container">
-            <button className="recipeButton" onClick={fetchRecipe} disabled={loading || ingredients.length === 0}>
-                Create Recipe
-            </button>
+            <div className="button-container">
+                <button className="myHref" onClick={fetchRecipe} disabled={loading || ingredients.length === 0}>
+                    Create Recipe
+                </button>
+            </div>
             {loading ? (
                 <img src={getRandomGif()} className="loading-gif" alt="Loading..." width="250" />
             ) : (
