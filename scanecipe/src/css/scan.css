@@ -71,7 +71,8 @@ body {
   background-color: #f1d59f;
   border-radius: 5px;
   margin-left: 325px;
-  border: none;
+  border: 0px solid #f1d59f;
+  margin-bottom: 20px;
 }
 
 .scanBtn a {
