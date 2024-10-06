@@ -6,6 +6,7 @@ import Scan from "./components/scan";
 import List from "./components/list";
 import OpenAI from "./components/openai";
 import { IngredientsProvider } from "./IngredientsContext"; // Import the context provider
+import { MotionProvider } from "./MotionContext";
 
 const App = () => {
   return (
@@ -32,12 +33,14 @@ const App = () => {
       </h1>
     </header>
     <IngredientsProvider>
-      <div className="main">
-        <List>
-          <Scan scanRate={250} covid19={true} upnqr={true} />
-        </List>
-        <OpenAI />
-      </div>
+      <MotionProvider>
+        <div className="main">
+          <List>
+            <Scan scanRate={250} covid19={true} upnqr={true} />
+          </List>
+          <OpenAI />
+        </div>
+      </MotionProvider>
     </IngredientsProvider>
     </div>
   );
