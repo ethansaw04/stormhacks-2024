@@ -97,13 +97,27 @@ body {
 }
 
 .result {
+  text-align: center;
   margin-top: 0px;
   font-size: 15px; 
   color: #333; 
-  
+  font-weight: bold;
 }
 
 .resultModal {
+  text-align: center;
+  padding-top: 20px;
+  background-color: white; 
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  border: 2px solid #ff6a00;
+  max-width: 1000px;
+  font-weight: bold;
   font-size: 15px;
   color: #333;
+}
+
+.resultFood {
+  max-width: 400px;
+  padding-left: 10px;
 }

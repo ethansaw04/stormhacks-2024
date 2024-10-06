@@ -367,17 +367,17 @@ export default function Scan({
   }
 
   const renderCopyToClipboardBtn = () => {
-    return <a href="!#" style={{padding: 12}} id="copyToClip" className="myHref"
+    return <a href="!#" style={{padding: 8}} id="copyToClip" className="myHref"
               onClick={onClickCopyToClipboard}>COPY</a>
   }
 
   const renderAddToListBtn = () => {
-    return <a href="!#" style={{padding: 12}} id="addToList" className="myHref"
+    return <a href="!#" style={{padding: 8}} id="addToList" className="myHref"
               onClick={onClickAddToList}>ADD TO LIST</a>
   }
 
   const renderClearListBtn = () => {
-    return <a href="!#" style={{padding: 12}} id="clearList" className="myHref"
+    return <a href="!#" style={{padding: 8}} id="clearList" className="myHref"
               onClick={onClickClearList}>CLEAR LIST</a>
   }
 
@@ -401,7 +401,7 @@ export default function Scan({
             Decoding took {milliseconds} ms
           </div> */}
           <div style={{marginTop: 40}}>
-            <a href="!#" style={{padding: 12}} className="myHref" onClick={onClickBackHandler}>BACK</a>
+            <a href="!#" style={{padding: 8}} className="myHref" onClick={onClickBackHandler}>BACK</a>
             {renderTransformToggle()}
             {renderCopyToClipboardBtn()}
             {renderAddToListBtn()}
