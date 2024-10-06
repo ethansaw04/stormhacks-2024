@@ -7,6 +7,8 @@ Introducing BarcodeBytes—the ultimate cooking hack for the broke college stude
 
 *If it doesn't work then run `defang compose up` in the `scanerecipe` directory and pray the frontend somehow successfully deploys*
 
+Here's [our backend website](https://sophiadt-backend--5001.prod1a.defang.dev/)
+
 ## ⚡ Usage
 
 ### Start backend
