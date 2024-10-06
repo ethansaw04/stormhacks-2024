@@ -3,10 +3,28 @@ import "../css/openai.css";
 import React, { useState, useEffect } from 'react';
 import { useIngredients } from '../IngredientsContext'; // Import the custom hook
 
+const giflist = [
+    "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXAwcGd5ZGR5dHB6YjB5dWZnNmx1ZWhucW0zZ21oczdyMjFzMzliZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5eFkI3L0xn5BkN7g2Z/giphy.webp",
+    "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2tmOHgwa2N3bGxtMXg4dDdoaTZzOXJrNGQ5eDEwaDVwOWRwNDZscyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Fa69v6AU6oN4i0DZZc/giphy.webp",
+    "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXRqbWtvb3E3Y3BsbHdtaTVpaDI1eTFtOHdwMnE4MHkzNHo5bWQ2NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l2SqbIFulqPMQq9nq/giphy.webp",
+    "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHcwcXVoczB5cmhiam91YjF0NGt6cDRpdzFmaWNzZHBwYzVpcmthbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wRbrOmS9UPSYWI1dGk/giphy.webp",
+    "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExemowZWNla3lnb3J3eHFsMWJ2M295bXR0dGlmYXg3YjJmMXM5emJ6aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Z8blEZs9alp16/giphy.webp",
+    "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExenQzdnpqbzk5Zzlvbms5bnRiY3pqeG14YW0xbGVhbGg2cmprdDlpaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CI89KUNc26qRi/giphy.webp",
+    "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzM4dHg1ZnFuYmZ3M3J4cGh3eXRsYWZ1ajIzazloYmdyY2gwb2JnaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/73trcfdnqJmrftTy7i/giphy.webp",
+    "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXUzOGRkZWN0ZDh5azA3Y3ljbDUzbXM3MDlsNm41MG56Y3JkNHRobyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hUL5R6B4HYoXADpnvJ/giphy.webp",
+    "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTRiM3Vva3A4YnB6dTdiNzh3bGJjdG9pZXl2eGZ6bXJhamh4MnFuMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Jkk64Xj64mcfu/giphy.webp",
+    "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGIzOXRidnRqcDNkNW0zZGs2eDZ4eHVxcHFybjNuY2RuZ3FrdWppbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l2JhyVygxHNYbrfnq/giphy.webp",
+]
+
 const OpenAI = () => {
     const { ingredients } = useIngredients(); // Access ingredients from context
     const [response, setResponse] = useState('');
     const [loading, setLoading] = useState(false);
+
+    const getRandomGif = () => {
+        const randomIndex = Math.floor(Math.random() * giflist.length);
+        return giflist[randomIndex];
+    };
 
     useEffect(() => {
         const fetchRecipe = async () => {
@@ -107,7 +125,7 @@ const OpenAI = () => {
     return (
         <div className="openai-container">
             {loading ? (
-                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXAwcGd5ZGR5dHB6YjB5dWZnNmx1ZWhucW0zZ21oczdyMjFzMzliZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5eFkI3L0xn5BkN7g2Z/giphy.webp" class="loading-gif" alt="this slowpoke moves"  width="250" />
+                <img src={getRandomGif()} class="loading-gif" alt="this slowpoke moves"  width="250" />
             ) : (
                 <div>
                     <h2>Generated Recipe:</h2>
