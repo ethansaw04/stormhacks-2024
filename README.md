@@ -1,3 +1,5 @@
+## Scanecipe
+
 ## ⚡ Usage
 
 ### Start backend
