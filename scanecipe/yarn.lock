@@ -3358,6 +3358,11 @@ ajv@^8.6.0, ajv@>=8:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
+animated-backgrounds@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.npmjs.org/animated-backgrounds/-/animated-backgrounds-1.0.11.tgz"
+  integrity sha512-M7sGVL3Yzrl6za788B6xM/a8w+cVZOAxPa8uEMWBUqRsb3ZpDwP3YqEu0aTIf7Dik54sMnlwGgZSj6pa/0yC9Q==
+
 anser@^1.4.9:
   version "1.4.10"
   resolved "https://registry.npmjs.org/anser/-/anser-1.4.10.tgz"
@@ -10438,7 +10443,7 @@ react-devtools-core@^5.3.1:
     shell-quote "^1.6.1"
     ws "^7"
 
-react-dom@^18.0.0:
+"react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", react-dom@^18.0.0:
   version "18.0.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.0.0.tgz"
   integrity sha512-XqX7uzmFo0pUceWFCt7Gff6IyIMzFUn7QMZrbrQfGxtaxXZIcGQzoNpRLE3fQLnS4XzLLPMZX2T9TRcSrasicw==
@@ -10600,7 +10605,7 @@ react@*, react@^18.2.0:
   dependencies:
     loose-envify "^1.1.0"
 
-react@^18.0.0, "react@>= 16", react@>16.0.0:
+"react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^18.0.0, "react@>= 16", react@>16.0.0:
   version "18.0.0"
   resolved "https://registry.npmjs.org/react/-/react-18.0.0.tgz"
   integrity sha512-x+VL6wbT4JRVPm7EGxXhZ8w8LTROaxPXOqhlGyVSrv0sB1jkyFGgXxJ8LVoPRLvPR6/CIZGFmfzqUa2NYeMr2A==

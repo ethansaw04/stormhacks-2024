@@ -6,6 +6,7 @@
   "description": "QR/bar code scanner for the Browser that generates recipes",
   "dependencies": {
     "@pathcheck/dcc-sdk": "^0.0.27",
+    "animated-backgrounds": "^1.0.11",
     "buffer": "^6.0.3",
     "framer-motion": "^11.11.1",
     "http-server": "^0.13.0",
