@@ -123,7 +123,7 @@ const OpenAI = () => {
 
     return (
         <div className="openai-container">
-            <button onClick={fetchRecipe} disabled={loading || ingredients.length === 0}>
+            <button className="recipeButton" onClick={fetchRecipe} disabled={loading || ingredients.length === 0}>
                 Create Recipe
             </button>
             {loading ? (
