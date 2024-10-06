@@ -3,7 +3,6 @@ body {
 }
 
 .openai-container {
-    max-height: 800px;
     margin: 20px auto;
     padding: 20px; 
     border: 1px solid #ccc;
@@ -12,7 +11,7 @@ body {
     background-color: #f9f9f9; 
     overflow: hidden; 
     text-align: left;
-    width: 763px;
+    width: 769px;
     justify-content: center;
     margin-right: 0px;
 }
