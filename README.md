@@ -1,4 +1,4 @@
-## Scanecipe
+# Scanecipe
 
 ## ⚡ Usage
 
