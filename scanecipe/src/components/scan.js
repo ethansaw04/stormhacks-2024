@@ -147,9 +147,11 @@ export default function Scan({
       setRawCode(56781234);
       setCodeType(CODE_TYPE.RAW);
       setMilliseconds(69);
-      const response = await fetch(('http://127.0.0.1:5000/scrape?upc=' + 18085400010));
+      // const response = await fetch(('http://127.0.0.1:5000/scrape?upc=' + 18085400010));
+      const response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
       const data = await response.json();
-      setFoodItem(data['title']); //REPLACE HERE FOR WEBSCRAPING
+      // setFoodItem(data['title']); 
+      setFoodItem(data[0]); //REPLACE HERE FOR WEBSCRAPING
     }
   };
 

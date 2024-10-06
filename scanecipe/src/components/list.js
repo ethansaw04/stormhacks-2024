@@ -11,7 +11,7 @@ const List = ({ children }) => {
       <div className="child flex-child">
         {React.cloneElement(children, { addItem })}
       </div>
-      <ul className="child flex-child">
+      <ul className="child flex-child-2">
         <div>List of Foods:</div>
         {ingredients.map((item, index) => (
           <li key={index}>{item}</li>
