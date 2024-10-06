@@ -1,20 +1,20 @@
 body {
     font-family: Lora, sans-serif;
     background-image: linear-gradient(
-    45deg,
-    hsl(36deg 57% 43%) 0%,
-    hsl(36deg 48% 47%) 8%,
-    hsl(36deg 43% 52%) 17%,
-    hsl(36deg 43% 56%) 25%,
-    hsl(37deg 43% 61%) 33%,
-    hsl(37deg 43% 65%) 42%,
-    hsl(37deg 43% 69%) 50%,
-    hsl(38deg 43% 74%) 58%,
-    hsl(38deg 43% 79%) 67%,
-    hsl(38deg 42% 83%) 75%,
-    hsl(39deg 40% 88%) 83%,
-    hsl(39deg 37% 93%) 92%,
-    hsl(40deg 23% 97%) 100%
+    30deg,
+    hsl(36deg 90% 37%) 0%,
+    hsl(34deg 67% 43%) 8%,
+    hsl(33deg 54% 48%) 17%,
+    hsl(33deg 49% 52%) 25%,
+    hsl(32deg 47% 57%) 33%,
+    hsl(32deg 45% 61%) 42%,
+    hsl(33deg 42% 65%) 50%,
+    hsl(34deg 37% 69%) 58%,
+    hsl(36deg 31% 73%) 67%,
+    hsl(41deg 21% 76%) 75%,
+    hsl(75deg 10% 80%) 83%,
+    hsl(174deg 17% 84%) 92%,
+    hsl(193deg 49% 87%) 100%
   );
 }
 
