@@ -71,6 +71,10 @@ export default function Scan({
   let canvas = null;
   let oldTime = 0;
 
+  const clearList = () => {
+    addItem(-1); // Set the list to be empty
+  };
+
   video.onplaying = () => {
     sx = (video.videoWidth - CANVAS_SIZE.WIDTH) / 2;
     sy = (video.videoHeight - CANVAS_SIZE.HEIGHT) / 2;
@@ -349,6 +353,18 @@ export default function Scan({
     }, 1000);
   }
 
+  const onClickClearList = async (e) => {
+    e.preventDefault();
+    clearList(fooditem);
+    const btnId = document.getElementById("clearList");
+    btnId.innerText = "CLEARED LIST";
+    btnId.style.backgroundColor = "#605a4a";
+    setTimeout(() => {
+      btnId.innerText = "CLEAR LIST";
+      btnId.style.backgroundColor = "#f1d59f";
+    }, 1000);
+  }
+
   const renderCopyToClipboardBtn = () => {
     return <a href="!#" style={{padding: 12}} id="copyToClip" className="myHref"
               onClick={onClickCopyToClipboard}>COPY</a>
@@ -357,6 +373,11 @@ export default function Scan({
   const renderAddToListBtn = () => {
     return <a href="!#" style={{padding: 12}} id="addToList" className="myHref"
               onClick={onClickAddToList}>ADD TO LIST</a>
+  }
+
+  const renderClearListBtn = () => {
+    return <a href="!#" style={{padding: 12}} id="clearList" className="myHref"
+              onClick={onClickClearList}>CLEAR LIST</a>
   }
 
   const renderResult = () => {
@@ -383,6 +404,7 @@ export default function Scan({
             {renderTransformToggle()}
             {renderCopyToClipboardBtn()}
             {renderAddToListBtn()}
+            {renderClearListBtn()}
           </div>
         </div>);
     }

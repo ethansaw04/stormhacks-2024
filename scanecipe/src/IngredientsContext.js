@@ -9,6 +9,9 @@ export const IngredientsProvider = ({ children }) => {
 
     const addItem = (item) => {
         setIngredients((prevItems) => [...prevItems, item]);
+        if (item === -1) {
+            setIngredients([]);
+        }
     };
 
     return (
