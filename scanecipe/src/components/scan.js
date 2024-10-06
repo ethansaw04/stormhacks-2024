@@ -5,6 +5,7 @@ import {CODE_TYPE} from "../transformers/base";
 import {Upnqr} from "../transformers/upnqr";
 import {Covid19} from "../transformers/covid19";
 import "../css/scan.css";
+import { motion } from 'framer-motion';
 
 const BTN_TXT = {
   START: "SCAN",
