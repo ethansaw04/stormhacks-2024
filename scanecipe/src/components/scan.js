@@ -118,7 +118,7 @@ export default function Scan({
         setCodeType(codeType);
         setMilliseconds(millis);
         if (WEBSCRAPER === 1) {
-          const response = await fetch('http://127.0.0.1:5000/scrape?upc=' + res);
+          const response = await fetch('http://127.0.0.1:5001/scrape?upc=' + res);
           const data = await response.json();
           setFoodItem(data['title']); 
         } else {
@@ -161,7 +161,7 @@ export default function Scan({
       setCodeType(CODE_TYPE.RAW);
       setMilliseconds(69);
       if (WEBSCRAPER === 1) {
-        const response = await fetch('http://127.0.0.1:5000/scrape?upc=' + 18085400010);
+        const response = await fetch('http://127.0.0.1:5001/scrape?upc=' + 18085400010);
         const data = await response.json();
         setFoodItem(data['title']); 
       } else {

@@ -1,0 +1,16 @@
+services:
+  backend:
+    build:
+      context: ./webscrape
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+  
+  frontend:
+    build:
+      context: ./scanecipe
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
