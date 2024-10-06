@@ -7,7 +7,7 @@ import {Covid19} from "../transformers/covid19";
 import "../css/scan.css";
 
 const BTN_TXT = {
-  START: "START",
+  START: "SCAN",
   STOP: "STOP"
 };
 
@@ -275,7 +275,7 @@ export default function Scan({
   const renderButtons = () => {
     return <div className="scanBtn">
       <a href="!#" className="myHref" onClick={onBtnClickHandler} style={startStyle()}>{btnText}</a>
-      <a href="!#" className="myHref" onClick={onCrossHairClickHandler} style={xHairStyle()}>Scanner</a>
+      <a href="!#" className="myHref" onClick={onCrossHairClickHandler} style={xHairStyle()}>Frame</a>
       <a href="!#" className="myHref" onClick={onBWClickHandler} style={bwStyle()}>B/W</a>
       <a href="!#" className="myHref" onClick={onBeepClickHandler} style={beepStyle()}>Beep</a>
     </div>;
