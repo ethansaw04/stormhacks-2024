@@ -14,6 +14,9 @@ const giflist = [
     "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXUzOGRkZWN0ZDh5azA3Y3ljbDUzbXM3MDlsNm41MG56Y3JkNHRobyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hUL5R6B4HYoXADpnvJ/giphy.webp",
     "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTRiM3Vva3A4YnB6dTdiNzh3bGJjdG9pZXl2eGZ6bXJhamh4MnFuMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Jkk64Xj64mcfu/giphy.webp",
     "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGIzOXRidnRqcDNkNW0zZGs2eDZ4eHVxcHFybjNuY2RuZ3FrdWppbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l2JhyVygxHNYbrfnq/giphy.webp",
+    "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWt2Z2RxZmxodjRxOXR6eHh6ZnI1ZTQ1MThwZGhvMHI5YWYxNDBhcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41lPX79K0l6sIvni/giphy.webp",
+    "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXE0Z29rNWhwNDhpeWNsb2o4YXhwNHRvdHpsa21pZjgzNzYybHRpayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rvfw6dkrnGD9wJEEAn/giphy.webp",
+    "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTllbTV5NnVjY2t6aG13cmhpejl6MHVuOTQ5NGNxejB5dmM2NG92aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/O6YlvJ4ZfCxzS9T3Al/giphy.webp",
 ]
 
 const OpenAI = () => {
