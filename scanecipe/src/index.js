@@ -9,6 +9,10 @@ import { IngredientsProvider } from "./IngredientsContext"; // Import the contex
 
 const App = () => {
   return (
+    <div className="app">
+      <header>
+        <h1 style={{ fontSize: '35px', fontWeight: 'bold' }}>Scanecipe</h1>
+      </header>
     <IngredientsProvider>
       <div className="main">
         <List>
@@ -17,6 +21,7 @@ const App = () => {
         <OpenAI />
       </div>
     </IngredientsProvider>
+    </div>
   );
 };
 
