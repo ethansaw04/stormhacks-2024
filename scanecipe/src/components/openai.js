@@ -25,7 +25,7 @@ const OpenAI = () => {
                 - A list of ingredients with portions.
                 - Step-by-step instructions.
 
-                You can incorporate commonly found ingredients such as salt, pepper, butter, sugar, siracha, soy sauce, and oyster sauce in your recipe. These are just suggestions but you have the freedom to assume more ingredients beyond what was suggested before, just make sure it is commonly found in a household.
+                You can incorporate commonly found seasonings such as salt, pepper, butter, sugar, siracha, soy sauce, and oyster sauce in your recipe. These are just suggestions but you have the freedom to assume more seasonings beyond what was suggested before, just make sure it is commonly found in a household.
 
                 # Steps
 
