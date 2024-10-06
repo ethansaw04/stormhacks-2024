@@ -7,6 +7,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(
+    45deg,
+    hsl(36deg 57% 43%) 0%,
+    hsl(36deg 48% 47%) 8%,
+    hsl(36deg 43% 52%) 17%,
+    hsl(36deg 43% 56%) 25%,
+    hsl(37deg 43% 61%) 33%,
+    hsl(37deg 43% 65%) 42%,
+    hsl(37deg 43% 69%) 50%,
+    hsl(38deg 43% 74%) 58%,
+    hsl(38deg 43% 79%) 67%,
+    hsl(38deg 42% 83%) 75%,
+    hsl(39deg 40% 88%) 83%,
+    hsl(39deg 37% 93%) 92%,
+    hsl(40deg 23% 97%) 100%
+  );
 }
 
 .scan {
