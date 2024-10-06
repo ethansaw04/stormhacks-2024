@@ -1,0 +1,32 @@
+.openai-container {
+    max-height: 800px;
+    margin: 20px auto;
+    padding: 20px; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; 
+    overflow: hidden; 
+    text-align: left;
+    width: 763px;
+    justify-content: center;
+    margin-right: 0px;
+}
+
+.openai-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.openai-container p {
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+}
+
+/* Loading text styling */
+.loading-text {
+    font-style: italic;
+    color: #888;
+    text-align: center;
+}

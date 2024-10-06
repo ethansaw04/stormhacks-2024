@@ -1,4 +1,5 @@
 // OpenAI.js
+import "../css/openai.css";
 import React, { useState, useEffect } from 'react';
 import { useIngredients } from '../IngredientsContext'; // Import the custom hook
 
@@ -53,9 +54,9 @@ const OpenAI = () => {
     }, [ingredients]); // Fetch recipe every time the ingredients change
 
     return (
-        <div>
+        <div className="openai-container">
             {loading ? (
-                <p>Loading...</p>
+                <p className="loading-text">Loading...</p>
             ) : (
                 <div>
                     <h2>Generated Recipe:</h2>
