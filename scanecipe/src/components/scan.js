@@ -33,6 +33,8 @@ let sy = 0;
 const crossHairSvg = "M77.125 148.02567c0-3.5774 2.73862-6.27567 6.37076-6.27567H119V117H84.0192C66.50812 117 52 130.77595 52 148.02567V183h25.125v-34.97433zM237.37338 117H202v24.75h35.18494c3.63161 0 6.69006 2.69775 6.69006 6.27567V183H269v-34.97433C269 130.77595 254.88446 117 237.37338 117zM243.875 285.4587c0 3.5774-2.73863 6.27567-6.37076 6.27567H202V317h35.50424C255.01532 317 269 302.70842 269 285.4587V251h-25.125v34.4587zM83.49576 291.73438c-3.63213 0-6.37076-2.69776-6.37076-6.27568V251H52v34.4587C52 302.70842 66.50812 317 84.0192 317H119v-25.26563H83.49576z";
 const crossHairWidth = 217, crossHairHeight = 200, x0 = 53, y0 = 117;
 
+const WEBSCRAPER = 1; //SET TO 1 IF WEBSCRAPER IS ON
+
 export default function Scan({
   beep = true,
   decode = true,
@@ -110,9 +112,15 @@ export default function Scan({
         setRawCode(rawCode);
         setCodeType(codeType);
         setMilliseconds(millis);
-        const response = await fetch('http://127.0.0.1:5000/scrape?upc=' + res);
-        const data = await response.json();
-        setFoodItem(data['title']); //REPLACE HERE FOR WEBSCRAPING
+        if (WEBSCRAPER === 1) {
+          const response = await fetch('http://127.0.0.1:5000/scrape?upc=' + res);
+          const data = await response.json();
+          setFoodItem(data['title']); 
+        } else {
+          const response = await fetch('https://themealdb.com/api/json/v1/1/random.php'); //USE THIS INSTEAD OF ABOVE LINE IF NOT USING WEBSCRAPER
+          const data = await response.json();
+          setFoodItem(data.meals[0].strMeal); //USE THIS INSTEAD OF ABOVE LINE IF NOT USING WEBSCRAPER
+        }
         if (beepOn) beepNow();
       }
     };
@@ -147,11 +155,15 @@ export default function Scan({
       setRawCode(56781234);
       setCodeType(CODE_TYPE.RAW);
       setMilliseconds(69);
-      // const response = await fetch(('http://127.0.0.1:5000/scrape?upc=' + 18085400010));
-      const response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
-      const data = await response.json();
-      // setFoodItem(data['title']); 
-      setFoodItem(data[0]); //REPLACE HERE FOR WEBSCRAPING
+      if (WEBSCRAPER === 1) {
+        const response = await fetch('http://127.0.0.1:5000/scrape?upc=' + 18085400010);
+        const data = await response.json();
+        setFoodItem(data['title']); 
+      } else {
+        const response = await fetch('https://themealdb.com/api/json/v1/1/random.php'); //USE THIS INSTEAD OF ABOVE LINE IF NOT USING WEBSCRAPER
+        const data = await response.json();
+        setFoodItem(data.meals[0].strMeal); //USE THIS INSTEAD OF ABOVE LINE IF NOT USING WEBSCRAPER
+      }
     }
   };
 
