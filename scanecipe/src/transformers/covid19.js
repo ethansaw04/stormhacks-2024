@@ -126,7 +126,7 @@ class Covid19 extends Transformer {
 
       let test_result;
       switch (json.test.test_result) {
-        case "260415001":
+        case "260415000":
           test_result = "Negative";
           break;
         case "260373001":

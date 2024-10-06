@@ -40,6 +40,11 @@ def scrape_go_upc(upc_code):
         print(f"Failed to retrieve data for UPC: {upc_code}, Status Code: {response.status_code}")
         return None
 
+# Root route to avoid 404 when accessing '/'
+@app.route('/')
+def home():
+    return "Flask backend is running. Use /scrape with a valid UPC code to scrape data."
+
 @app.route('/scrape', methods=['GET'])
 def scrape():
     # Get UPC code from query parameters
@@ -57,4 +62,5 @@ def scrape():
         return jsonify({'error': 'Failed to retrieve product title'}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)  # Ensure it listens on all interfaces
+    # Set debug=False for production, keep host to 0.0.0.0 and port 5001
+    app.run(host='0.0.0.0', port=5001)
