@@ -110,7 +110,7 @@ export default function Scan({
         setRawCode(rawCode);
         setCodeType(codeType);
         setMilliseconds(millis);
-        const response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
+        const response = await fetch('http://127.0.0.1:5000/scrape?upc=' + res);
         const data = await response.json();
         setFoodItem(data[0]); //REPLACE HERE FOR WEBSCRAPING
         if (beepOn) beepNow();
@@ -142,14 +142,14 @@ export default function Scan({
       // console.log("stopped by the user");
       // alert(err);
 
-      setBarcode(12345678);
+      setBarcode(18085400010);
       setResultOpen(true);
       setRawCode(56781234);
       setCodeType(CODE_TYPE.RAW);
       setMilliseconds(69);
-      const response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
+      const response = await fetch(('http://127.0.0.1:5000/scrape?upc=' + 18085400010));
       const data = await response.json();
-      setFoodItem(data[0]); //REPLACE HERE FOR WEBSCRAPING
+      setFoodItem(data['title']); //REPLACE HERE FOR WEBSCRAPING
     }
   };
 

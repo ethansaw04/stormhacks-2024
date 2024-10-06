@@ -1,7 +1,17 @@
 ## ⚡ Usage
 
+### Start backend
+```shell
+cd ../webscrape
+python -m venv venv
+source venv/bin/activate #or venv\Scripts\activate if on windows
+pip install requests beautifulsoup4 Flask flask-cors
+python app.py
+```
+
 ### Install dependencies
 ```shell
+cd scanecipe
 npm install --global yarn
 yarn install --frozen-lockfile
 ```
