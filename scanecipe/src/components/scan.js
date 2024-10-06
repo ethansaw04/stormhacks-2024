@@ -34,7 +34,7 @@ let sy = 0;
 const crossHairSvg = "M77.125 148.02567c0-3.5774 2.73862-6.27567 6.37076-6.27567H119V117H84.0192C66.50812 117 52 130.77595 52 148.02567V183h25.125v-34.97433zM237.37338 117H202v24.75h35.18494c3.63161 0 6.69006 2.69775 6.69006 6.27567V183H269v-34.97433C269 130.77595 254.88446 117 237.37338 117zM243.875 285.4587c0 3.5774-2.73863 6.27567-6.37076 6.27567H202V317h35.50424C255.01532 317 269 302.70842 269 285.4587V251h-25.125v34.4587zM83.49576 291.73438c-3.63213 0-6.37076-2.69776-6.37076-6.27568V251H52v34.4587C52 302.70842 66.50812 317 84.0192 317H119v-25.26563H83.49576z";
 const crossHairWidth = 217, crossHairHeight = 200, x0 = 53, y0 = 117;
 
-const WEBSCRAPER = 0; //SET TO 1 IF WEBSCRAPER IS ON
+const WEBSCRAPER = 1; //SET TO 1 IF WEBSCRAPER IS ON
 
 export default function Scan({
   beep = true,
@@ -252,22 +252,22 @@ export default function Scan({
   };
 
   const xHairStyle = () => {
-    if (crosshairOn) return {backgroundColor: "#f1d59f"};
+    if (crosshairOn) return {backgroundColor: "#ff6a00"};
     else return {backgroundColor: "#605a4a"};
   };
 
   const bwStyle = () => {
-    if (bwOn) return {backgroundColor: "#f1d59f"};
+    if (bwOn) return {backgroundColor: "#ff6a00"};
     else return {backgroundColor: "#605a4a"};
   };
 
   const beepStyle = () => {
-    if (beepOn) return {backgroundColor: "#f1d59f"};
+    if (beepOn) return {backgroundColor: "#ff6a00"};
     else return {backgroundColor: "#605a4a"};
   };
 
   const transformToggleStyle = () => {
-    if (transformToggle) return {backgroundColor: "#f1d59f", padding: 12};
+    if (transformToggle) return {backgroundColor: "#ff6a00", padding: 12};
     else return {backgroundColor: "#605a4a", padding: 12};
   }
 
@@ -337,7 +337,7 @@ export default function Scan({
     btnId.style.backgroundColor = "#605a4a";
     setTimeout(() => {
       btnId.innerText = "COPY";
-      btnId.style.backgroundColor = "#f1d59f";
+      btnId.style.backgroundColor = "#ff6a00";
     }, 1000);
   }
 
@@ -346,11 +346,11 @@ export default function Scan({
     // await navigator.clipboard.writeText(barcode); //PUT BEHAVIOUR HERE TO ADD TO LIST
     addItem(fooditem);
     const btnId = document.getElementById("addToList");
-    btnId.innerText = "ADDED TO LIST";
+    btnId.innerText = "ADDED 😼";
     btnId.style.backgroundColor = "#605a4a";
     setTimeout(() => {
       btnId.innerText = "ADD TO LIST";
-      btnId.style.backgroundColor = "#f1d59f";
+      btnId.style.backgroundColor = "#ff6a00";
     }, 1000);
   }
 
@@ -358,11 +358,11 @@ export default function Scan({
     e.preventDefault();
     clearList(fooditem);
     const btnId = document.getElementById("clearList");
-    btnId.innerText = "CLEARED LIST";
+    btnId.innerText = "CLEARED 🙀";
     btnId.style.backgroundColor = "#605a4a";
     setTimeout(() => {
       btnId.innerText = "CLEAR LIST";
-      btnId.style.backgroundColor = "#f1d59f";
+      btnId.style.backgroundColor = "#ff6a00";
     }, 1000);
   }
 

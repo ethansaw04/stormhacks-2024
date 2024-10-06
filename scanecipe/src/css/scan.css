@@ -57,7 +57,7 @@ body {
   padding: 10px 15px;
   text-decoration: none;
   color: white;
-  background-color: #f1d59f;
+  background-color: #ff6a00;
   border-radius: 5px;
   transition: background-color 0.3s ease;
   margin: 5px; 
@@ -83,12 +83,12 @@ body {
   background-color: #f9f9f9;
   border-radius: 0px;
   margin-left: 325px;
-  border: 0px solid #f1d59f;
+  border: 0px solid #ff6a00;
   margin-bottom: 20px;
 }
 
 .scanBtn a {
-  background-color: #f1d59f;
+  background-color: #ff6a00;
 }
 
 .scanBtn a:hover {

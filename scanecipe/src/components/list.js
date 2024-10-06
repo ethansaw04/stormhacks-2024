@@ -6,6 +6,12 @@ import { motion } from 'framer-motion';
 import { useMotion } from '../MotionContext';
 
 const List = ({ children }) => {
+    const foodTypes = ['🍔', '🍕', '🌭', '🍟', '🌮', '🍣', '🍩', '🍦', '🍎', '🍇', '🍓', '🍑', '🍍', '🥑', '🥕', '🥪', '🥨', '🧀', '🥐', '🥯', '🍱', '🍜', '🍙', '🍗', '🥟', '🥘', '🍤', '🥞', '🧇', '🥓'];
+    const getRandomFood = () => {
+        const randomIndex = Math.floor(Math.random() * foodTypes.length);
+        return foodTypes[randomIndex];
+    };
+
   const { ingredients, addItem } = useIngredients(); // Access ingredients and addItem from context
 
   const { currentIndex, setCurrentIndex } = useMotion();
@@ -29,17 +35,18 @@ const List = ({ children }) => {
         <div>List of Foods:</div>
         {ingredients.map((item, index) => (
             <li key={index}>
-                <motion.div initial={{ x: 0, y: 0, opacity: 1 }} // Initial position
+                <motion.div initial={{ x: 0, y: 0, opacity: 1, scale: 1 }} // Initial position
                     animate={{ x: currentIndex >= index ? -210 : 0, 
                         y: currentIndex >= index ? 1000 - index * 25 : 0,
-                        opacity: currentIndex >= index ? 0 : 1 }}
-                    transition={{ease: [0.17, 0.67, 0.83, 0.67], opacity: { duration: 0.4 }}}
+                        opacity: currentIndex >= index ? 0 : 1,
+                        scale: currentIndex >= index ? 10 : 1 }}
+                    transition={{ease: [0.17, 0.67, 0.83, 0.67], opacity: { duration: 0.6 }}}
                     onAnimationComplete={() => {
                         if (currentIndex === index) {
                           handleClick();
                         }
                     }}
-                    >{item}
+                    >{currentIndex >= index ? getRandomFood() : item}
                 </motion.div>
             </li>
         ))}
