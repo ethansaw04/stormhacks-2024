@@ -29,7 +29,7 @@ const App = () => {
             e.currentTarget.style.color = '';
           }}
         >
-          Scanecipe
+          BarcodeBytes
       </h1>
     </header>
     <IngredientsProvider>
