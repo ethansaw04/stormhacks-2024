@@ -8,6 +8,7 @@ source venv/bin/activate #or venv\Scripts\activate if on windows
 pip install requests beautifulsoup4 Flask flask-cors
 python app.py
 ```
+*If `python -m venv venv` doesn't work try `python3 -m venv venv`*
 
 ### Install dependencies
 ```shell
