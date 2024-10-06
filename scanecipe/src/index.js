@@ -11,8 +11,26 @@ const App = () => {
   return (
     <div className="app">
       <header>
-        <h1 style={{ fontSize: '35px', fontWeight: 'bold' }}>Scanecipe</h1>
-      </header>
+        <h1 
+          style={{
+            fontSize: '35px', 
+            fontWeight: 'bold', 
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+            transition: 'transform 0.3s, color 0.3s',
+            cursor: 'pointer' 
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.transform = 'scale(1.1)';
+            e.currentTarget.style.color = '#ff6a00';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.transform = 'scale(1)';
+            e.currentTarget.style.color = '';
+          }}
+        >
+          Scanecipe
+      </h1>
+    </header>
     <IngredientsProvider>
       <div className="main">
         <List>
