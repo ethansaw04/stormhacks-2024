@@ -329,10 +329,10 @@ export default function Scan({
     await navigator.clipboard.writeText(barcode);
     const btnId = document.getElementById("copyToClip");
     btnId.innerText = "DONE";
-    btnId.style.backgroundColor = "green";
+    btnId.style.backgroundColor = "#605a4a";
     setTimeout(() => {
       btnId.innerText = "COPY";
-      btnId.style.backgroundColor = "";
+      btnId.style.backgroundColor = "#f1d59f";
     }, 1000);
   }
 
@@ -342,10 +342,10 @@ export default function Scan({
     addItem(fooditem);
     const btnId = document.getElementById("addToList");
     btnId.innerText = "ADDED TO LIST";
-    btnId.style.backgroundColor = "green";
+    btnId.style.backgroundColor = "#605a4a";
     setTimeout(() => {
       btnId.innerText = "ADD TO LIST";
-      btnId.style.backgroundColor = "";
+      btnId.style.backgroundColor = "#f1d59f";
     }, 1000);
   }
 
