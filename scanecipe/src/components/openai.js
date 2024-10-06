@@ -107,7 +107,7 @@ const OpenAI = () => {
     return (
         <div className="openai-container">
             {loading ? (
-                <p className="loading-text">Loading...</p>
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXAwcGd5ZGR5dHB6YjB5dWZnNmx1ZWhucW0zZ21oczdyMjFzMzliZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5eFkI3L0xn5BkN7g2Z/giphy.webp" class="loading-gif" alt="this slowpoke moves"  width="250" />
             ) : (
                 <div>
                     <h2>Generated Recipe:</h2>
